@@ -28,11 +28,19 @@ function init() {
 						  // console.log("Exists")
   						scene.remove(mesh);
 						}
-						
+          						
+           var Xscale = parseFloat(document.getElementById('Xscale').value);
+           var Yscale = parseFloat(document.getElementById('Yscale').value);
+           var Zscale = parseFloat(document.getElementById('Zscale').value);
+           var XscaleReal = parseFloat(document.getElementById('XscaleReal').value);
+           var YscaleReal = parseFloat(document.getElementById('YscaleReal').value);
+           var ZscaleReal = parseFloat(document.getElementById('ZscaleReal').value);
+          						
+          						
 						mesh = new THREE.Mesh(geometry, material);
 						mesh.position.set(0, 0, 0);
 						mesh.rotation.set(0, 0, 0);
-						mesh.scale.set((20 / 19.4), (20 / 19.4), 1);
+						mesh.scale.set((Xscale / XscaleReal), (Yscale / YscaleReal), (Zscale / ZscaleReal));
 						mesh.castShadow = true;
 						mesh.receiveShadow = true;
 						scene.add(mesh);

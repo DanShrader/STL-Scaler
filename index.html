@@ -51,66 +51,119 @@
           display: none;
       }
     
-     .container {
-        width: 90%; }
+      input {
+        padding: 3px 6px;
+        background-color: #fff;
+        border: 1px solid #D1D1D1;
+        border-radius: 4px;
+        box-shadow: none;
+      }
+          
+          
+      .container {
+        position: relative;
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box; }
+      
+      .row{
+        margin:0 0 .5rem 0;
+        padding:0;
+        
+      }
+      
+      
+      /* Self Clearing Goodness */
+      .container:after,
+      .row:after,
+      .u-cf {
+        content: "";
+        display: table;
+        clear: both; }
+      
       .column,
       .columns {
-        margin-left: 2%;
+        width: 100%;
+        float: left;
+        box-sizing: border-box; }
+      
+      /* For devices larger than 400px */
+      @media (min-width: 400px) {
+        .container {
+          width: 90%;
+      /*     padding: 0;  */
       }
-      .column:first-child,
-      .columns:first-child {
-        margin-left: 2%; }
-    
-      .one.column,
-      .one.columns                    { width: 4.66666666667%; }
-      .two.columns                    { width: 13.3333333333%; }
-      .three.columns                  { width: 22%;            }
-      .four.columns                   { width: 30.6666666667%; }
-      .five.columns                   { width: 39.3333333333%; }
-      .six.columns                    { width: 48%;            }
-      .seven.columns                  { width: 56.6666666667%; }
-      .eight.columns                  { width: 65.3333333333%; }
-      .nine.columns                   { width: 74.0%;          }
-      .ten.columns                    { width: 82.6666666667%; }
-      .eleven.columns                 { width: 91.3333333333%; }
-      .twelve.columns                 { width: 100%; margin-left: 0; }
-    
-      .one-third.column               { width: 30.6666666667%; }
-      .two-thirds.column              { width: 65.3333333333%; }
-    
-      .one-half.column                { width: 48%; }
-    
-      /* Offsets */
-      .offset-by-one.column,
-      .offset-by-one.columns          { margin-left: 8.66666666667%; }
-      .offset-by-two.column,
-      .offset-by-two.columns          { margin-left: 17.3333333333%; }
-      .offset-by-three.column,
-      .offset-by-three.columns        { margin-left: 26%;            }
-      .offset-by-four.column,
-      .offset-by-four.columns         { margin-left: 34.6666666667%; }
-      .offset-by-five.column,
-      .offset-by-five.columns         { margin-left: 43.3333333333%; }
-      .offset-by-six.column,
-      .offset-by-six.columns          { margin-left: 52%;            }
-      .offset-by-seven.column,
-      .offset-by-seven.columns        { margin-left: 60.6666666667%; }
-      .offset-by-eight.column,
-      .offset-by-eight.columns        { margin-left: 69.3333333333%; }
-      .offset-by-nine.column,
-      .offset-by-nine.columns         { margin-left: 78.0%;          }
-      .offset-by-ten.column,
-      .offset-by-ten.columns          { margin-left: 86.6666666667%; }
-      .offset-by-eleven.column,
-      .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
-    
-      .offset-by-one-third.column,
-      .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
-      .offset-by-two-thirds.column,
-      .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
-    
-      .offset-by-one-half.column,
-      .offset-by-one-half.columns     { margin-left: 52%; }
+      }
+      
+      /* For devices larger than 550px */
+      @media (min-width: 550px) {
+        .container {
+          width: 90%; }
+        .column,
+        .columns {
+          margin-left: 2%;
+        }
+        .column:first-child,
+        .columns:first-child {
+          margin-left: 2%; }
+      
+        .one.column,
+        .one.columns                    { width: 4.66666666667%; }
+        .two.columns                    { width: 13.3333333333%; }
+        .three.columns                  { width: 22%;            }
+        .four.columns                   { width: 30.6666666667%; }
+        .five.columns                   { width: 39.3333333333%; }
+        .six.columns                    { width: 48%;            }
+        .seven.columns                  { width: 56.6666666667%; }
+        .eight.columns                  { width: 65.3333333333%; }
+        .nine.columns                   { width: 74.0%;          }
+        .ten.columns                    { width: 82.6666666667%; }
+        .eleven.columns                 { width: 91.3333333333%; }
+        .twelve.columns                 { width: 100%; margin-left: 0; }
+      
+        .one-third.column               { width: 30.6666666667%; }
+        .two-thirds.column              { width: 65.3333333333%; }
+      
+        .one-half.column                { width: 48%; }
+      
+        /* Offsets */
+        .offset-by-one.column,
+        .offset-by-one.columns          { margin-left: 10.66666666667%; }
+        .offset-by-two.column,
+        .offset-by-two.columns          { margin-left: 17.3333333333%; }
+        .offset-by-three.column,
+        .offset-by-three.columns        { margin-left: 26%;            }
+        .offset-by-four.column,
+        .offset-by-four.columns         { margin-left: 34.6666666667%; }
+        .offset-by-five.column,
+        .offset-by-five.columns         { margin-left: 43.3333333333%; }
+        .offset-by-six.column,
+        .offset-by-six.columns          { margin-left: 52%;            }
+        .offset-by-seven.column,
+        .offset-by-seven.columns        { margin-left: 60.6666666667%; }
+        .offset-by-eight.column,
+        .offset-by-eight.columns        { margin-left: 69.3333333333%; }
+        .offset-by-nine.column,
+        .offset-by-nine.columns         { margin-left: 78.0%;          }
+        .offset-by-ten.column,
+        .offset-by-ten.columns          { margin-left: 86.6666666667%; }
+        .offset-by-eleven.column,
+        .offset-by-eleven.columns       { margin-left: 95.3333333333%; }
+      
+        .offset-by-one-third.column,
+        .offset-by-one-third.columns    { margin-left: 34.6666666667%; }
+        .offset-by-two-thirds.column,
+        .offset-by-two-thirds.columns   { margin-left: 69.3333333333%; }
+      
+        .offset-by-one-half.column,
+        .offset-by-one-half.columns     { margin-left: 52%; }
+      
+      }
+
+  
+      
   	  .center{text-align:center}
 		</style>
 	</head>
@@ -122,9 +175,42 @@
         </h3>
       </div>
       <div class="row">
-  		  <p class="twelve columns center">
+  		  <p class="twelve columns ">
   		    There is a lot more work to be done here, but for now I can easily correct my STL files before importing into AstroPrint.
-  		  <p/>
+  		    Also this page is not in a affiliation with Monoprice or Astro print, use at your own risk, etc.
+  		    Additionally, this is only tested with google chrome on ChromeOS.
+  		  </p>
+      </div>
+		  <div class="row">
+        <h3>Set you scaling factor below</h3>
+      </div>
+		  <div class="row">
+    		  <label class="four columns">
+          	X-Should Be
+          	<input type="numeric" id="Xscale" value=20 />
+          </label>
+    		  <label class="four columns">
+        	   Y-Should Be
+          	<input type="numeric" id="Yscale" value=20 />
+          </label>
+    		  <label class="four columns">
+        	   Z-Should Be
+          	<input type="numeric" id="Zscale" value=1 />
+          </label>
+      </div>
+		  <div class="row">
+    		  <label class="four columns">
+        	   X As Measured
+          	<input type="numeric" id="XscaleReal" value=19.4 />
+          </label>
+    		  <label class="four columns">
+        	   Y As Measured
+          	<input type="numeric" id="YscaleReal" value=19.4 />
+          </label>
+    		  <label class="four columns">
+        	   Z As Measured
+          	<input type="numeric" id="ZscaleReal" value=1 />
+          </label>
       </div>
 		  <div class="row">
   		  <label class="button three columns">
@@ -132,8 +218,9 @@
       	   Upload File
         </label>
       	<div class="button three columns" id="exportSTL">Export</div>
-		  </div>
-		</div>
+      </div>
+	  </div>
+
 		<div id="stl" class="row"></div>
 		<script src="three.js"></script>
 		<script src="STLExporter.js"></script>
