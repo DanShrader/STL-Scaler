@@ -15,11 +15,11 @@ Like anything with 3D printing **use this at your own risk**.  It's free softwar
 
 ## Road map
 
-[ ] Make the UI consistant
-[ ] Allow for other scaling needs to be addressed and saved in your local memory
-[ ] Fix the non-centering print
-[ ] Add a button for 90 dergee rotations on XYZ
-[ ] Make the output file name match the input with just a -processed or something like that
+* [] Make the UI consistant
+* [] Allow for other scaling needs to be addressed and saved in your local memory
+* [] Fix the non-centering print
+* [] Add a button for 90 dergee rotations on XYZ
+* [] Make the output file name match the input with just a -processed or something like that
 
 ### Thanks to the following
 
