@@ -5,8 +5,7 @@ init();
 animate();
 
 function init() {
-	var mesh;
-	var material;
+	var mesh, material, fileName;
 	var loader = new THREE.STLLoader();
 
 	function handleFileSelect(evt) {
@@ -17,6 +16,7 @@ function init() {
 			// Closure to capture the file information.
 			reader.onload = (function (theFile) {
 				return function (e) {
+				  fileName = theFile.name
 					loader.load(e.target.result, function (geometry) {
 						material = new THREE.MeshPhongMaterial({
 							color: 0xff5533,
@@ -26,7 +26,7 @@ function init() {
 						mesh = new THREE.Mesh(geometry, material);
 						mesh.position.set(0, 0, 0);
 						mesh.rotation.set(0, 0, 0);
-						mesh.scale.set((19.4 / 20), (19.4 / 20), 1);
+						mesh.scale.set((20 / 19.4), (20 / 19.4), 1);
 						mesh.castShadow = true;
 						mesh.receiveShadow = true;
 						scene.add(mesh);
@@ -68,20 +68,10 @@ function init() {
 
 	function exportASCII() {
 		var result = exporter.parse(mesh);
-		saveString(result, 'box.stl');
+		var newFileName = "Vent cover 2_.stl".split(".");
+		newFileName = newFileName[0]+"-Corrected."+newFileName[1];
+		saveString(result, newFileName);
 	}
-
-// 	var params = {
-// 		ExportSTL: function () {
-// 			exportASCII();
-// 		},
-// 		ImportSTL: function () {
-// 			console.log("Import Clicked");
-// 		}
-// 	};
-
-// 	var gui = new dat.GUI();
-// 	gui.add(params, 'ExportSTL');
 
 	// Lights
 	scene.add(new THREE.HemisphereLight(0x443333, 0x111122));
