@@ -23,6 +23,12 @@ function init() {
 							specular: 0x111111,
 							shininess: 200
 						});
+						
+						if (typeof(mesh) !== 'undefined'){
+						  // console.log("Exists")
+  						scene.remove(mesh);
+						}
+						
 						mesh = new THREE.Mesh(geometry, material);
 						mesh.position.set(0, 0, 0);
 						mesh.rotation.set(0, 0, 0);
@@ -44,8 +50,15 @@ function init() {
 
 	container = document.createElement('div');
 	document.getElementById("stl").append(container);
-	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-	camera.position.set(3, 0.15, 120);
+	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+	
+// 	var controls = new THREE.OrbitControls( camera );
+
+	
+	camera.position.set( 0, 20, 100 );
+	
+// 	controls.update();
+	
 	cameraTarget = new THREE.Vector3(0, 0, 0);
 	scene = new THREE.Scene();
 	var link = document.createElement('a');
@@ -68,7 +81,7 @@ function init() {
 
 	function exportASCII() {
 		var result = exporter.parse(mesh);
-		var newFileName = "Vent cover 2_.stl".split(".");
+		var newFileName = fileName.split(".");
 		newFileName = newFileName[0]+"-Corrected."+newFileName[1];
 		saveString(result, newFileName);
 	}
