@@ -16,27 +16,26 @@ function init() {
 			// Closure to capture the file information.
 			reader.onload = (function (theFile) {
 				return function (e) {
-				  fileName = theFile.name
+					fileName = theFile.name
 					loader.load(e.target.result, function (geometry) {
 						material = new THREE.MeshPhongMaterial({
 							color: 0xff5533,
 							specular: 0x111111,
 							shininess: 200
 						});
-						
-						if (typeof(mesh) !== 'undefined'){
-						  // console.log("Exists")
-  						scene.remove(mesh);
+
+						if (typeof (mesh) !== 'undefined') {
+							// console.log("Exists")
+							scene.remove(mesh);
 						}
-          						
-           var Xscale = parseFloat(document.getElementById('Xscale').value);
-           var Yscale = parseFloat(document.getElementById('Yscale').value);
-           var Zscale = parseFloat(document.getElementById('Zscale').value);
-           var XscaleReal = parseFloat(document.getElementById('XscaleReal').value);
-           var YscaleReal = parseFloat(document.getElementById('YscaleReal').value);
-           var ZscaleReal = parseFloat(document.getElementById('ZscaleReal').value);
-          						
-          						
+
+						var Xscale = parseFloat(document.getElementById('Xscale').value);
+						var Yscale = parseFloat(document.getElementById('Yscale').value);
+						var Zscale = parseFloat(document.getElementById('Zscale').value);
+						var XscaleReal = parseFloat(document.getElementById('XscaleReal').value);
+						var YscaleReal = parseFloat(document.getElementById('YscaleReal').value);
+						var ZscaleReal = parseFloat(document.getElementById('ZscaleReal').value);
+
 						mesh = new THREE.Mesh(geometry, material);
 						mesh.position.set(0, 0, 0);
 						mesh.rotation.set(0, 0, 0);
@@ -44,6 +43,13 @@ function init() {
 						mesh.castShadow = true;
 						mesh.receiveShadow = true;
 						scene.add(mesh);
+						mesh.position.set(0, 0, 0);
+						// position and point the camera to the center of the scene
+						camera.position.x = 0;
+						camera.position.y = -200;
+						camera.position.z = 120;
+						camera.lookAt(scene.position);
+						renderer.render(scene, camera);
 					});
 
 				};
@@ -54,21 +60,14 @@ function init() {
 	}
 	document.getElementById('file-input').addEventListener('change', handleFileSelect, false);
 
-
-
 	container = document.createElement('div');
 	document.getElementById("stl").append(container);
-	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-	
-// 	var controls = new THREE.OrbitControls( camera );
+	camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight * 0.8, 0.1, 1000);
 
-	
-	camera.position.set( 0, 20, 100 );
-	
-// 	controls.update();
-	
 	cameraTarget = new THREE.Vector3(0, 0, 0);
 	scene = new THREE.Scene();
+
+	exporter = new THREE.STLExporter();
 	var link = document.createElement('a');
 	link.style.display = 'none';
 	document.body.appendChild(link);
@@ -85,12 +84,10 @@ function init() {
 		}), filename);
 	}
 
-	exporter = new THREE.STLExporter();
-
 	function exportASCII() {
 		var result = exporter.parse(mesh);
 		var newFileName = fileName.split(".");
-		newFileName = newFileName[0]+"-Corrected."+newFileName[1];
+		newFileName = newFileName[0] + "-Corrected." + newFileName[1];
 		saveString(result, newFileName);
 	}
 
@@ -111,19 +108,10 @@ function init() {
 	container.appendChild(renderer.domElement);
 	window.addEventListener('resize', onWindowResize, false);
 
-  // Button for the export
+	// Button for the export
 	document.getElementById('exportSTL').addEventListener('click', exportASCII, false);
 
 }
-
-
-
-
-
-
-
-
-
 
 function addShadowedLight(x, y, z, color, intensity) {
 	var directionalLight = new THREE.DirectionalLight(color, intensity);
@@ -145,7 +133,7 @@ function addShadowedLight(x, y, z, color, intensity) {
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight * 0.8;
 	camera.updateProjectionMatrix();
-	renderer.setSize(window.innerWidth , window.innerHeight * 0.8);
+	renderer.setSize(window.innerWidth, window.innerHeight * 0.8);
 }
 
 function animate() {
@@ -155,8 +143,8 @@ function animate() {
 
 function render() {
 	var timer = Date.now() * 0.0005;
-	camera.position.x = Math.cos(timer) * 30;
-	camera.position.y = Math.sin(timer) * 30;
+	camera.position.z = (Math.cos(timer) * 50) + 120;
+	camera.position.x = (Math.sin(timer) * 50);
 	camera.lookAt(cameraTarget);
 	renderer.render(scene, camera);
 }
