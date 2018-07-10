@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Monoprice / AstroPrint Adjuster</title>
+		<title>STL Adjuster</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -171,15 +171,35 @@
 		<div id="info" class="container">
       <div class="row">
         <h3 class="twelve columns center">
-    		  Monoprice / AstroPrint Adjuster... Correction of the scale
+    		  STL Scale Adjuster
         </h3>
       </div>
       <div class="row">
   		  <p class="twelve columns ">
-  		    There is a lot more work to be done here, but for now I can easily correct my STL files before importing into AstroPrint.
-  		    Also this page is not in a affiliation with Monoprice or Astro print, use at your own risk, etc.
-  		    Additionally, this is only tested with google chrome on ChromeOS.
+  		    This is a simple single page application to allow for STL adjustments based on how your 3d printer prints.  The default values are
+  		    what my printer produces from a <a href="https://www.thingiverse.com/thing:1278865" target=_blank>XYZ 20mm Calibration Cube</a>, but
+  		    you can simply insert your own numbers.
   		  </p>
+  
+        <h5>Instructions</h5>
+  		  <ol>
+  		    <li>Print a calibration object</li>
+  		    <li>Enter what the measurment should be</li>
+  		    <li>Enter what it is</li>
+  		    <li>Upload the STL file</li>
+  		    <li>Export the corrected STL file</li>
+  		  </ol>
+
+  		  <p class="twelve columns ">
+          <h5>Warning</h5>
+          Like anything with 3D printing use this at your own risk.  It's free software, but that does not mean that it's free of bugs.  Check your exported STL files before printing.  There is no warrenty or guarentee that it will work, or that the files will be right.
+  		  </p>
+  		  
+      </div>
+      <div class="row">
+  		  <a class="four columns button" href="https://github.com/DanShrader/STL-Scaler" target=_blank>Project Home</a>
+  		  <a class="four columns button" href="https://github.com/DanShrader/STL-Scaler/issues" target=_blank>Bug Reporting</a>
+  		  <a class="four columns button" href="https://www.campingcoder.com//tags/3d-printing/" target=_blank>Our 3d printing Adventures</a>
       </div>
 		  <div class="row">
         <h3>Set you scaling factor below</h3>
